@@ -16,6 +16,7 @@ app.use(express.json());
 const DATA_DIR = path.join(__dirname, 'data');
 const MENU_FILE = path.join(DATA_DIR, 'menu.json');
 const USERS_FILE = path.join(DATA_DIR, 'users.json');
+const ORDERS_FILE = path.join(DATA_DIR, 'orders.json');
 
 // --- HELPER FUNCTIONS ---
 
@@ -161,6 +162,25 @@ app.delete('/api/menu/:id', async (req, res) => {
   }
 });
 
+app.post('/api/orders', async (req, res) => {
+  const orderData = req.body;
+  // Add a unique server-side ID and timestamp
+  const newOrder = { 
+    ...orderData, 
+    id: Date.now(), 
+    serverReceivedAt: new Date().toISOString() 
+  };
+
+  try {
+    const orders = await readJsonFile(ORDERS_FILE);
+    orders.push(newOrder);
+    await writeJsonFile(ORDERS_FILE, orders);
+    res.status(201).json(newOrder);
+  } catch (error) {
+    console.error("Order Save Error:", error);
+    res.status(500).json({ error: "Failed to save order" });
+  }
+});
 
 app.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}`);

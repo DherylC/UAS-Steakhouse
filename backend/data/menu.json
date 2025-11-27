@@ -3,28 +3,42 @@
     "id": 1,
     "name": "Classic Burger",
     "description": "Juicy beef patty with cheddar and fresh lettuce.",
-    "price": "12.99",
+    "price": "33000",
     "category": "Mains"
   },
   {
     "id": 2,
     "name": "Margherita Pizza",
     "description": "Wood-fired base with tomato sauce and basil.",
-    "price": "14.50",
+    "price": "109000",
     "category": "Mains"
   },
   {
     "id": 3,
     "name": "Caesar Salad",
     "description": "Crisp romaine, croutons, parmesan, and dressing.",
-    "price": "9.99",
+    "price": "29000",
     "category": "Starters"
   },
   {
     "id": 4,
-    "name": "Chocolate Lava Cake",
+    "name": "Chocolate Lava Cake Slice",
     "description": "Warm chocolate cake with a molten center.",
-    "price": "7.50",
+    "price": "14000",
     "category": "Desserts"
+  },
+  {
+    "id": 1764257214208,
+    "name": "Sirloin Steak",
+    "description": "Sirloin Steak",
+    "price": "128000",
+    "category": "Steaks"
+  },
+  {
+    "id": 1764259551874,
+    "name": "Tea",
+    "description": "Classic refreshing drink. Free refill up to 3 times.",
+    "price": "9000",
+    "category": "Drinks"
   }
 ]

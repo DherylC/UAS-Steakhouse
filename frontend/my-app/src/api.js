@@ -52,12 +52,34 @@ export const api = {
     return response.json();
   },
 
+  updateMenuItem: async (item) => {
+    const response = await fetch(`${BASE_URL}/menu/${item.id}`, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(item),
+    });
+
+    if (!response.ok) throw new Error('Failed to update item');
+    return response.json();
+  },
+
   deleteMenuItem: async (id) => {
     const response = await fetch(`${BASE_URL}/menu/${id}`, {
       method: 'DELETE',
     });
 
     if (!response.ok) throw new Error('Failed to delete item');
-    return response.json(); // Returns { message: "Item deleted", id: ... }
+    return response.json(); 
+  },
+
+  submitOrder: async (orderData) => {
+    const response = await fetch(`${BASE_URL}/orders`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(orderData),
+    });
+
+    if (!response.ok) throw new Error('Failed to submit order');
+    return response.json();
   }
 };

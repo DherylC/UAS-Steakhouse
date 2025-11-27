@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 
 export default function MenuItemForm({ initialData = {}, onSave, onCancel }) {
-  // Initialize state with passed data (for editing) or empty strings (for adding)
   const [formData, setFormData] = useState({
     id: initialData.id || null,
     name: initialData.name || '',
@@ -13,20 +12,22 @@ export default function MenuItemForm({ initialData = {}, onSave, onCancel }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     
-    // Basic validation
     if (!formData.name || !formData.price) {
       alert("Name and Price are required!");
       return;
     }
 
-    // Pass the data back to the parent component
+    if (formData.price <= 0) {
+      alert("Price must be a positive number!");
+      return;
+    }
+
     onSave(formData);
   };
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
       
-      {/* Name Input */}
       <div>
         <label className="block text-xs font-bold text-slate-500 uppercase mb-1">
           Dish Name
@@ -45,7 +46,7 @@ export default function MenuItemForm({ initialData = {}, onSave, onCancel }) {
       <div className="flex gap-4">
         <div className="w-1/2">
           <label className="block text-xs font-bold text-slate-500 uppercase mb-1">
-            Price ($)
+            Price (Rp)
           </label>
           <input 
             type="number" 
@@ -69,13 +70,13 @@ export default function MenuItemForm({ initialData = {}, onSave, onCancel }) {
           >
             <option value="Mains">Mains</option>
             <option value="Starters">Starters</option>
+            <option value="Steaks">Steaks</option>
             <option value="Desserts">Desserts</option>
             <option value="Drinks">Drinks</option>
           </select>
         </div>
       </div>
 
-      {/* Description Input */}
       <div>
         <label className="block text-xs font-bold text-slate-500 uppercase mb-1">
           Description
@@ -89,7 +90,6 @@ export default function MenuItemForm({ initialData = {}, onSave, onCancel }) {
         />
       </div>
 
-      {/* Action Buttons */}
       <div className="flex gap-3 pt-2">
         <button 
           type="submit" 

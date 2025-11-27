@@ -23,7 +23,7 @@ export default function LoginForm({ onRegisterClick, onLoginSuccess, onError }) 
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
+    <form onSubmit={handleSubmit} className="space-y-6 w-100">
       <InputField 
         label="Username" 
         value={formData.username}

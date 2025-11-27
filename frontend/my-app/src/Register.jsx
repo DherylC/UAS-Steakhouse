@@ -24,8 +24,8 @@ export default function RegisterForm({ onLoginClick, onRegisterSuccess, onError 
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4">
-      <div className="bg-orange-50 p-3 rounded text-sm text-orange-800 border border-orange-100">
+    <form onSubmit={handleSubmit} className="space-y-4 w-100">
+      <div className="bg-orange-50 p-5 rounded text-sm text-orange-800 border border-orange-100">
         <strong>Tip:</strong> Use username <strong>admin</strong> for manager access.
       </div>
       <InputField 
@@ -56,7 +56,7 @@ export default function RegisterForm({ onLoginClick, onRegisterSuccess, onError 
         {loading ? 'Creating...' : 'Register'}
       </button>
       <div className="text-center text-sm text-slate-500 mt-4">
-        Have an account? <button type="button" onClick={onLoginClick} className="text-slate-800 font-bold hover:underline">Sign In</button>
+        Have an account? <button type="button" onClick={onLoginClick} className="font-white font-bold hover:underline">Sign In</button>
       </div>
     </form>
   );

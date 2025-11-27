@@ -26,12 +26,5 @@
     "description": "Warm chocolate cake with a molten center.",
     "price": "7.50",
     "category": "Desserts"
-  },
-  {
-    "id": 1764174924417,
-    "name": "Eskrim Adam",
-    "description": "enak dan lezat",
-    "price": "123",
-    "category": "Desserts"
   }
 ]
